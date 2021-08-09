@@ -8,12 +8,12 @@ const routes: Routes = [
 		component: DashboardPageComponent,
 		children: [
 			{
-				path: 'productos'
-				//loadChildren: () => import('./product-page/product-page.module').then((m) => m.ProductPageModule)
+				path: 'productos',
+				loadChildren: () => import('./product-page/product-page.module').then((m) => m.ProductPageModule)
 			},
 			{
-				path: 'categorias'
-				//loadChildren: () => import('./categorie-page/categorie-page.module').then((m) => m.CategoriePageModule)
+				path: 'categorias',
+				loadChildren: () => import('./category-page/category-page.module').then((m) => m.CategoryPageModule)
 			},
 			{
 				path: '**',

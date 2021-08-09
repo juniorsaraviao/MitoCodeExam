@@ -10,7 +10,7 @@ export class MenuComponent {
 	constructor(private _router: Router) {}
 
 	public listMenu = [
-		{ name: 'Categorias', path: '/dashboard/categorias', icon: 'category' },
-		{ name: 'Productos', path: '/dashboard/productos', icon: 'point_of_sale' }
+		{ name: 'Productos', path: '/dashboard/productos', icon: 'point_of_sale' },
+		{ name: 'Categorias', path: '/dashboard/categorias', icon: 'category' }
 	];
 }
