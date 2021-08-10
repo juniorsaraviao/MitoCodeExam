@@ -1,0 +1,11 @@
+.close {
+  position: relative;
+  &__icon {
+    position: absolute;
+    top: -4px;
+    right: -16px;
+    line-height: 0px;
+    min-width: auto;
+    cursor: pointer;
+  }
+}

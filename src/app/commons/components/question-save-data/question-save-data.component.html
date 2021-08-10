@@ -1,0 +1,20 @@
+<div class="container">
+	<button
+		*ngIf="showQuestion === false && showLoader === false"
+		mat-raised-button
+		color="primary"
+		[disabled]="disabledButtonRegister"
+		(click)="clickRegister()"
+	>
+		Registrar
+	</button>
+
+	<ng-container *ngIf="showQuestion">
+		<h2>¿Desea guardar los datos?</h2>
+		<div class="container__actions">
+			<button mat-button color="warn" (click)="clickCancel()">Cancelar</button>
+			<button mat-flat-button color="primary" (click)="clickSave()">Guardar</button>
+		</div>
+	</ng-container>
+	<app-loader *ngIf="showLoader"></app-loader>
+</div>

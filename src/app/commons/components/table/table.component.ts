@@ -14,6 +14,8 @@ export class TableComponent implements OnInit, AfterViewInit {
 	@Input() showButtonEdit = true;
 	@Input() showButtonDelete = true;
 	@Input() showButtonViewDetail = false;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	@Input() function!: () => void;
 
 	@Output() editEvent = new EventEmitter();
 	@Output() deleteEvent = new EventEmitter();

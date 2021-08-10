@@ -1,0 +1,9 @@
+.container {
+	display: flex;
+	flex-direction: column;
+
+	.container__actions {
+		display: flex;
+		justify-content: space-between;
+	}
+}

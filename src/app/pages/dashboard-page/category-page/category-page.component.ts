@@ -1,16 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { CategoryComponent } from 'src/app/business/main-flow/category-flow/category/category.component';
 import { IDataTable } from 'src/app/commons/models/interfaces/basic-component-model.interface';
+import { CustomDialogService } from 'src/app/commons/services/custom-dialog.service';
 
 @Component({
 	selector: 'app-category-page',
 	templateUrl: './category-page.component.html',
 	styleUrls: ['./category-page.component.scss']
 })
-export class CategoryPageComponent {
+export class CategoryPageComponent implements OnInit {
 	public dataSource!: MatTableDataSource<unknown>;
 
-	//constructor() {}
+	constructor(private _customDialogService: CustomDialogService) {}
 	data: IDataTable = {
 		columns: [
 			{ title: 'Nombre', width: '40%' },
@@ -30,6 +32,16 @@ export class CategoryPageComponent {
 		]
 	};
 
+	ngOnInit(): void {
+		this._findAllCategories();
+	}
+
+	private _findAllCategories(): void {
+		// this._categoryApiService.findAll().subscribe((data) => {
+		// 	this._loadDataTable(data);
+		// });
+	}
+
 	clickCrearProducto(): void {
 		console.log('hi');
 	}
@@ -39,4 +51,16 @@ export class CategoryPageComponent {
 			this.dataSource = event;
 		}, 0);
 	}
+
+	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+	clickCreateCategorie = () => {
+		const afterClosed = this._customDialogService.open({
+			component: CategoryComponent,
+			title: 'Agregar nueva Categoria',
+			disableAutoClose: true
+		});
+		afterClosed.subscribe(() => {
+			this._findAllCategories();
+		});
+	};
 }

@@ -1,0 +1,19 @@
+<form class="container" [formGroup]="categoryFlowService.formGroup" autocomplete="off">
+	<mat-form-field appearance="outline">
+		<mat-label>Categoría</mat-label>
+		<input matInput name="nombre" formControlName="name" />
+		<mat-icon matSuffix class="material-icons-outlined">category</mat-icon>
+	</mat-form-field>
+
+	<mat-form-field appearance="outline">
+		<mat-label>Descripción</mat-label>
+		<input matInput name="descripción" formControlName="description" />
+		<mat-icon matSuffix class="material-icons-outlined">description</mat-icon>
+	</mat-form-field>
+
+	<app-question-save-data
+		[disabledButtonRegister]="categoryFlowService.formGroup.invalid"
+		[showLoader]="categoryFlowService.showLoader"
+		(saveEvent)="categoryFlowService.registerCategorie()"
+	></app-question-save-data>
+</form>

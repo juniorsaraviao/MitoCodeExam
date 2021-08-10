@@ -11,9 +11,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MenuModule } from 'src/app/commons/components/menu/menu.module';
 import { DashboardPageRoutingModule } from './dashboard-page-routing.module';
+import { CustomDialogComponent } from 'src/app/commons/components/custom-dialog/custom-dialog.component';
 
 @NgModule({
-	declarations: [DashboardPageComponent],
+	declarations: [DashboardPageComponent, CustomDialogComponent],
 	imports: [
 		CommonModule,
 		DashboardPageRoutingModule,
