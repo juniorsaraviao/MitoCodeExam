@@ -53,14 +53,26 @@ export class CategoryPageComponent implements OnInit {
 	}
 
 	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-	clickCreateCategorie = () => {
-		const afterClosed = this._customDialogService.open({
-			component: CategoryComponent,
-			title: 'Agregar nueva Categoria',
-			disableAutoClose: true
-		});
-		afterClosed.subscribe(() => {
-			this._findAllCategories();
-		});
+	clickCreateCategorie = (item?: unknown) => {
+		if (!item) {
+			const afterClosed = this._customDialogService.open({
+				component: CategoryComponent,
+				title: 'Agregar nueva Categoria',
+				disableAutoClose: true
+			});
+			afterClosed.subscribe(() => {
+				this._findAllCategories();
+			});
+		} else {
+			const afterClosed = this._customDialogService.open({
+				component: CategoryComponent,
+				title: 'Editar Categoria',
+				disableAutoClose: true,
+				value: item
+			});
+			afterClosed.subscribe(() => {
+				this._findAllCategories();
+			});
+		}
 	};
 }

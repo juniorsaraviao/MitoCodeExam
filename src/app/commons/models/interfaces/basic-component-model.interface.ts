@@ -20,6 +20,7 @@ export interface IDataDialog {
 	component: Type<unknown>;
 	dataTransfer?: ITransferDataDialog[];
 	title: string;
+	value?: unknown;
 }
 
 export interface IConfigDialog extends IDataDialog {

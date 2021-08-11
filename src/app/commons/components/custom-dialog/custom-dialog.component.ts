@@ -38,6 +38,8 @@ export class CustomDialogComponent implements OnDestroy, AfterViewInit {
 		const factory = this.resolver.resolveComponentFactory(this._dataDialog.component);
 
 		this.componentRef = this.componentTarget.createComponent(factory);
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+		this.componentRef.instance.value = this._dataDialog.value;
 
 		this.title = this._dataDialog.title;
 		if (this._dataDialog.dataTransfer) {

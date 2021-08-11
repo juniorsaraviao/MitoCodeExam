@@ -9,13 +9,23 @@ export class CategoryFlowService {
 	public formGroup!: FormGroup;
 	public showLoader = false;
 
-	loadFormGroup(): void {
-		this.formGroup = this._formBuilder.group({
-			// eslint-disable-next-line @typescript-eslint/unbound-method
-			name: [null, Validators.required],
-			// eslint-disable-next-line @typescript-eslint/unbound-method
-			description: [null, Validators.required]
-		});
+	loadFormGroup(value?: any): void {
+		if (value) {
+			// TODO create a model to map directly
+			// this.formGroup = this._formBuilder.group({
+			// 	// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+			// 	name: [value?.name, Validators.required],
+			// 	// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+			// 	description: [value?.weight, Validators.required]
+			// });
+		} else {
+			this.formGroup = this._formBuilder.group({
+				// eslint-disable-next-line @typescript-eslint/unbound-method
+				name: [null, Validators.required],
+				// eslint-disable-next-line @typescript-eslint/unbound-method
+				description: [null, Validators.required]
+			});
+		}
 	}
 
 	registerCategorie(): void {
