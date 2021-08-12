@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -17,6 +18,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 		BrowserAnimationsModule,
 		ReactiveFormsModule,
 		MatSnackBarModule,
+		MatSelectModule,
 		MatDialogModule,
 		MenuModule
 	],

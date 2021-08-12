@@ -1,0 +1,22 @@
+<form class="container" [formGroup]="productFlowService.formGroup">
+	<mat-form-field appearance="outline">
+		<mat-label>Nombre</mat-label>
+		<input matInput name="nombre" formControlName="name" />
+		<mat-icon matSuffix class="material-icons-outlined">badge</mat-icon>
+	</mat-form-field>
+	<mat-form-field appearance="outline">
+		<mat-label>Categoria</mat-label>
+		<mat-select formControlName="category">
+			<mat-option value="one">First option</mat-option>
+		</mat-select>
+	</mat-form-field>
+	<mat-form-field appearance="outline">
+		<mat-label>Precio Unitario</mat-label>
+		<input matInput name="precioUnitario" type="number" formControlName="unitprice" />
+		<mat-icon matSuffix class="material-icons-outlined">sell</mat-icon>
+	</mat-form-field>
+	<div class="container__controls">
+		<mat-checkbox color="primary" formControlName="available">Vigencia</mat-checkbox>
+		<button mat-raised-button color="primary">Registrar</button>
+	</div>
+</form>

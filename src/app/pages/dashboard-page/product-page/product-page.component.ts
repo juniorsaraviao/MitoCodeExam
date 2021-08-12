@@ -1,17 +1,29 @@
+import { ProductComponent } from './../../../business/main-flow/product-flow/product/product.component';
 import { MatTableDataSource } from '@angular/material/table';
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IDataTable } from 'src/app/commons/models/interfaces/basic-component-model.interface';
+import { CustomDialogService } from 'src/app/commons/services/custom-dialog.service';
 
 @Component({
 	selector: 'app-product-page',
 	templateUrl: './product-page.component.html',
 	styleUrls: ['./product-page.component.scss']
 })
-export class ProductPageComponent {
+export class ProductPageComponent implements OnInit {
 	public dataSource!: MatTableDataSource<unknown>;
 
-	//constructor() {}
+	constructor(private _customDialogService: CustomDialogService) {}
+
+	ngOnInit(): void {
+		this._findAllCategories();
+	}
+
+	private _findAllCategories(): void {
+		// this._categoryApiService.findAll().subscribe((data) => {
+		// 	this._loadDataTable(data);
+		// });
+	}
 	data: IDataTable = {
 		columns: [
 			{ title: 'Nombre', width: '40%' },
@@ -40,4 +52,28 @@ export class ProductPageComponent {
 			this.dataSource = event;
 		}, 0);
 	}
+
+	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+	clickCreateCategorie = (item?: unknown) => {
+		if (!item) {
+			const afterClosed = this._customDialogService.open({
+				component: ProductComponent,
+				title: 'Agregar un nuevo Producto',
+				disableAutoClose: true
+			});
+			afterClosed.subscribe(() => {
+				this._findAllCategories();
+			});
+		} else {
+			const afterClosed = this._customDialogService.open({
+				component: ProductComponent,
+				title: 'Editar Producto',
+				disableAutoClose: true,
+				value: item
+			});
+			afterClosed.subscribe(() => {
+				this._findAllCategories();
+			});
+		}
+	};
 }

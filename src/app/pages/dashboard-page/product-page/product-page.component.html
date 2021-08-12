@@ -2,6 +2,6 @@
 	<div class="container__content">
 		<h1>Productos</h1>
 		<app-search [dataSource]="dataSource"></app-search>
-		<app-table [dataTable]="data" (dataSourceEvent)="demo($event)"></app-table>
+		<app-table [dataTable]="data" (dataSourceEvent)="demo($event)" [function]="clickCreateCategorie"></app-table>
 	</div>
 </div>
