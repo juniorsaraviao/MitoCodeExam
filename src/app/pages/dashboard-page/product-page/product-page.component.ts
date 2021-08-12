@@ -3,7 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 
 import { Component, OnInit } from '@angular/core';
 import { IDataTable, IProduct } from 'src/app/commons/models/interfaces/basic-component-model.interface';
-import { CustomDialogService } from 'src/app/commons/services/custom-dialog.service';
+import { CustomDialogService } from 'src/app/commons/services/local/custom-dialog.service';
 
 @Component({
 	selector: 'app-product-page',

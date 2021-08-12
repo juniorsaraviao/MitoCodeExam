@@ -9,6 +9,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -20,7 +21,8 @@ import { MatSelectModule } from '@angular/material/select';
 		MatSnackBarModule,
 		MatSelectModule,
 		MatDialogModule,
-		MenuModule
+		MenuModule,
+		HttpClientModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

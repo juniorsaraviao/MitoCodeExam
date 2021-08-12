@@ -1,7 +1,7 @@
 import { IProduct } from 'src/app/commons/models/interfaces/basic-component-model.interface';
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MessageService } from 'src/app/commons/services/message.service';
+import { MessageService } from 'src/app/commons/services/local/message.service';
 
 @Injectable()
 export class ProductFlowService {

@@ -1,4 +1,14 @@
-import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import {
+	AfterViewInit,
+	Component,
+	EventEmitter,
+	Input,
+	OnChanges,
+	OnInit,
+	Output,
+	SimpleChanges,
+	ViewChild
+} from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -9,7 +19,7 @@ import { IColumn, IDataTable } from '../../models/interfaces/basic-component-mod
 	templateUrl: './table.component.html',
 	styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements OnInit, AfterViewInit {
+export class TableComponent implements OnInit, AfterViewInit, OnChanges {
 	@Input() dataTable!: IDataTable;
 	@Input() showButtonEdit = true;
 	@Input() showButtonDelete = true;
@@ -31,6 +41,18 @@ export class TableComponent implements OnInit, AfterViewInit {
 	columnNames: IColumn[] = [];
 	displayedColumns: string[] = [];
 	private _existData = false;
+
+	ngOnChanges(changes: SimpleChanges): void {
+		const table = changes['dataTable'].currentValue as IDataTable;
+
+		if (table && table.data.length > 0) {
+			this.columnNames = table.columns;
+			this.dataSource = new MatTableDataSource(table.data);
+			this.displayedColumns = table.columns.filter((x) => !x.hidden).map((item) => item.title);
+			this.displayedColumns.push('actions');
+			this.dataSourceEvent.emit(this.dataSource);
+		}
+	}
 
 	ngOnInit(): void {
 		this._existData = this.dataTable && this.dataTable.data.length > 0;

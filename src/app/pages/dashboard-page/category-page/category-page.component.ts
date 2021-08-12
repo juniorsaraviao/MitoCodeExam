@@ -3,7 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { CategoryComponent } from 'src/app/business/main-flow/category-flow/category/category.component';
 import { IDataTable } from 'src/app/commons/models/interfaces/basic-component-model.interface';
-import { CustomDialogService } from 'src/app/commons/services/custom-dialog.service';
+import { CustomDialogService } from 'src/app/commons/services/local/custom-dialog.service';
+import { CategoryApiService } from 'src/app/commons/services/apis/category/category-api.service';
+import { IResponseCategoryFindAll } from 'src/app/commons/services/apis/category/category-api-models.interface';
 
 @Component({
 	selector: 'app-category-page',
@@ -13,38 +15,28 @@ import { CustomDialogService } from 'src/app/commons/services/custom-dialog.serv
 export class CategoryPageComponent implements OnInit {
 	public dataSource!: MatTableDataSource<unknown>;
 
-	constructor(private _customDialogService: CustomDialogService) {}
-	data: IDataTable = {
-		columns: [
-			{ title: 'Nombre', width: '40%' },
-			{ title: 'Descripción', width: '40%' }
-		],
-		data: [
-			{ productId: 1, categoryName: 'Hydrogen', categoryDescription: 1.0079 },
-			{ productId: 2, categoryName: 'Helium', categoryDescription: 4.0026 },
-			{ productId: 3, categoryName: 'Lithium', categoryDescription: 6.941 },
-			{ productId: 4, categoryName: 'Beryllium', categoryDescription: 9.0122 },
-			{ productId: 5, categoryName: 'Boron', categoryDescription: 10.811 },
-			{ productId: 6, categoryName: 'Carbon', categoryDescription: 12.0107 },
-			{ productId: 7, categoryName: 'Nitrogen', categoryDescription: 14.0067 },
-			{ productId: 8, categoryName: 'Oxygen', categoryDescription: 15.9994 },
-			{ productId: 9, categoryName: 'Fluorine', categoryDescription: 18.9984 },
-			{ productId: 10, categoryName: 'Neon', categoryDescription: 20.1797 }
-		]
-	};
+	constructor(private _customDialogService: CustomDialogService, private _categoryApiService: CategoryApiService) {}
+	dataTable!: IDataTable;
 
 	ngOnInit(): void {
 		this._findAllCategories();
 	}
 
-	private _findAllCategories(): void {
-		// this._categoryApiService.findAll().subscribe((data) => {
-		// 	this._loadDataTable(data);
-		// });
+	private _loadDataTable(dataResponse: IResponseCategoryFindAll): void {
+		this.dataTable = {
+			columns: [
+				{ title: 'id', width: '0%', hidden: true },
+				{ title: 'Categoría', width: '40%' },
+				{ title: 'Descripción', width: '60%' }
+			],
+			data: [...dataResponse.collection]
+		};
 	}
 
-	clickCrearProducto(): void {
-		console.log('hi');
+	private _findAllCategories(): void {
+		this._categoryApiService.findAll().subscribe((data) => {
+			this._loadDataTable(data);
+		});
 	}
 
 	demo(event: MatTableDataSource<unknown>): void {
@@ -58,7 +50,7 @@ export class CategoryPageComponent implements OnInit {
 		if (!item) {
 			const afterClosed = this._customDialogService.open({
 				component: CategoryComponent,
-				title: 'Agregar nueva Categoria',
+				title: 'Agregar nueva Categoría',
 				disableAutoClose: true
 			});
 			afterClosed.subscribe(() => {
@@ -67,7 +59,7 @@ export class CategoryPageComponent implements OnInit {
 		} else {
 			const afterClosed = this._customDialogService.open({
 				component: CategoryComponent,
-				title: 'Editar Categoria',
+				title: 'Editar Categoría',
 				disableAutoClose: true,
 				value: item as ICategory
 			});

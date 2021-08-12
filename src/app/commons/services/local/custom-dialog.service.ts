@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-import { CustomDialogComponent } from '../components/custom-dialog/custom-dialog.component';
-import { IConfigDialog } from '../models/interfaces/basic-component-model.interface';
+import { CustomDialogComponent } from '../../components/custom-dialog/custom-dialog.component';
+import { IConfigDialog } from '../../models/interfaces/basic-component-model.interface';
 
 @Injectable({ providedIn: 'root' })
 export class CustomDialogService {

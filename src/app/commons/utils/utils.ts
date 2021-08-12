@@ -1,0 +1,16 @@
+export class Utils {
+	static concatQueryUrl<T>(url: string, object: T): string {
+		if (!object || Object.entries(object).length === 0) {
+			return url;
+		}
+
+		Object.entries(object).forEach(([key, value]) => {
+			if (key && value) {
+				url += `${key}=${value as string}&`;
+			}
+		});
+
+		url = url.substring(0, url.length - 1);
+		return url;
+	}
+}
