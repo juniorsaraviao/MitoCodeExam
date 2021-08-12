@@ -1,3 +1,4 @@
+import { ICategory } from './../../models/interfaces/basic-component-model.interface';
 import {
 	AfterViewInit,
 	Component,
@@ -9,7 +10,7 @@ import {
 	ViewContainerRef
 } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { IDataDialog } from '../../models/interfaces/basic-component-model.interface';
+import { IDataDialog, IProduct } from '../../models/interfaces/basic-component-model.interface';
 
 @Component({
 	selector: 'app-custom-dialog',
@@ -39,7 +40,7 @@ export class CustomDialogComponent implements OnDestroy, AfterViewInit {
 
 		this.componentRef = this.componentTarget.createComponent(factory);
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-		this.componentRef.instance.value = this._dataDialog.value;
+		this.componentRef.instance.value = this._dataDialog.value as IProduct | ICategory;
 
 		this.title = this._dataDialog.title;
 		if (this._dataDialog.dataTransfer) {

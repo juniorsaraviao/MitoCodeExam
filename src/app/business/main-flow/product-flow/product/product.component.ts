@@ -1,3 +1,4 @@
+import { IProduct } from 'src/app/commons/models/interfaces/basic-component-model.interface';
 import { AfterContentInit, Component, Input } from '@angular/core';
 import { ProductFlowService } from '../service/product-flow.service';
 
@@ -8,7 +9,7 @@ import { ProductFlowService } from '../service/product-flow.service';
 	providers: [ProductFlowService]
 })
 export class ProductComponent implements AfterContentInit {
-	@Input() value!: unknown;
+	@Input() value!: IProduct;
 	constructor(public productFlowService: ProductFlowService) {
 		productFlowService.loadFormGroup(this.value);
 	}

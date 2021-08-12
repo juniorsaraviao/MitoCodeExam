@@ -20,9 +20,23 @@ export interface IDataDialog {
 	component: Type<unknown>;
 	dataTransfer?: ITransferDataDialog[];
 	title: string;
-	value?: unknown;
+	value?: ICategory | IProduct;
 }
 
 export interface IConfigDialog extends IDataDialog {
 	disableAutoClose?: boolean;
+}
+
+export interface ICategory {
+	categoryId?: number;
+	categoryName: string;
+	categoryDescription: string;
+}
+
+export interface IProduct {
+	productId?: number;
+	productName: string;
+	category: string;
+	unitPrice: number;
+	enabled: boolean;
 }

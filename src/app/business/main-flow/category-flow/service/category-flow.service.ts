@@ -1,3 +1,4 @@
+import { ICategory } from './../../../../commons/models/interfaces/basic-component-model.interface';
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageService } from 'src/app/commons/services/message.service';
@@ -9,15 +10,15 @@ export class CategoryFlowService {
 	public formGroup!: FormGroup;
 	public showLoader = false;
 
-	loadFormGroup(value?: any): void {
+	loadFormGroup(value?: ICategory): void {
 		if (value) {
 			// TODO create a model to map directly
-			// this.formGroup = this._formBuilder.group({
-			// 	// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-			// 	name: [value?.name, Validators.required],
-			// 	// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-			// 	description: [value?.weight, Validators.required]
-			// });
+			this.formGroup = this._formBuilder.group({
+				// eslint-disable-next-line @typescript-eslint/unbound-method
+				name: [value?.categoryName, Validators.required],
+				// eslint-disable-next-line @typescript-eslint/unbound-method
+				description: [value?.categoryDescription, Validators.required]
+			});
 		} else {
 			this.formGroup = this._formBuilder.group({
 				// eslint-disable-next-line @typescript-eslint/unbound-method

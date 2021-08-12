@@ -1,3 +1,4 @@
+import { ICategory } from './../../../commons/models/interfaces/basic-component-model.interface';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { CategoryComponent } from 'src/app/business/main-flow/category-flow/category/category.component';
@@ -19,16 +20,16 @@ export class CategoryPageComponent implements OnInit {
 			{ title: 'Descripción', width: '40%' }
 		],
 		data: [
-			{ name: 'Hydrogen', weight: 1.0079 },
-			{ name: 'Helium', weight: 4.0026 },
-			{ name: 'Lithium', weight: 6.941 },
-			{ name: 'Beryllium', weight: 9.0122 },
-			{ name: 'Boron', weight: 10.811 },
-			{ name: 'Carbon', weight: 12.0107 },
-			{ name: 'Nitrogen', weight: 14.0067 },
-			{ name: 'Oxygen', weight: 15.9994 },
-			{ name: 'Fluorine', weight: 18.9984 },
-			{ name: 'Neon', weight: 20.1797 }
+			{ productId: 1, categoryName: 'Hydrogen', categoryDescription: 1.0079 },
+			{ productId: 2, categoryName: 'Helium', categoryDescription: 4.0026 },
+			{ productId: 3, categoryName: 'Lithium', categoryDescription: 6.941 },
+			{ productId: 4, categoryName: 'Beryllium', categoryDescription: 9.0122 },
+			{ productId: 5, categoryName: 'Boron', categoryDescription: 10.811 },
+			{ productId: 6, categoryName: 'Carbon', categoryDescription: 12.0107 },
+			{ productId: 7, categoryName: 'Nitrogen', categoryDescription: 14.0067 },
+			{ productId: 8, categoryName: 'Oxygen', categoryDescription: 15.9994 },
+			{ productId: 9, categoryName: 'Fluorine', categoryDescription: 18.9984 },
+			{ productId: 10, categoryName: 'Neon', categoryDescription: 20.1797 }
 		]
 	};
 
@@ -68,7 +69,7 @@ export class CategoryPageComponent implements OnInit {
 				component: CategoryComponent,
 				title: 'Editar Categoria',
 				disableAutoClose: true,
-				value: item
+				value: item as ICategory
 			});
 			afterClosed.subscribe(() => {
 				this._findAllCategories();

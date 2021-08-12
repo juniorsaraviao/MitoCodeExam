@@ -1,3 +1,4 @@
+import { IProduct } from 'src/app/commons/models/interfaces/basic-component-model.interface';
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageService } from 'src/app/commons/services/message.service';
@@ -9,18 +10,18 @@ export class ProductFlowService {
 	public formGroup!: FormGroup;
 	public showLoader = false;
 
-	loadFormGroup(value?: any): void {
+	loadFormGroup(value?: IProduct): void {
 		if (value) {
 			// TODO create a model to map directly
 			this.formGroup = this._formBuilder.group({
-				// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-				//name: [value?.name, Validators.required],
-				// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-				//category: ['one', Validators.required],
 				// eslint-disable-next-line @typescript-eslint/unbound-method
-				//unitprice: [0, Validators.required],
+				name: [value?.productName, Validators.required],
 				// eslint-disable-next-line @typescript-eslint/unbound-method
-				//available: [true, Validators.required]
+				category: [value?.category, Validators.required],
+				// eslint-disable-next-line @typescript-eslint/unbound-method
+				unitprice: [value?.unitPrice, Validators.required],
+				// eslint-disable-next-line @typescript-eslint/unbound-method
+				enabled: [value?.enabled, Validators.required]
 			});
 		} else {
 			this.formGroup = this._formBuilder.group({
@@ -31,7 +32,7 @@ export class ProductFlowService {
 				// eslint-disable-next-line @typescript-eslint/unbound-method
 				unitprice: [0, Validators.required],
 				// eslint-disable-next-line @typescript-eslint/unbound-method
-				available: [0, Validators.required]
+				enabled: [0, Validators.required]
 			});
 		}
 	}
