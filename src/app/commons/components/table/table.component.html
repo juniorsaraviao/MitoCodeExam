@@ -1,5 +1,5 @@
-<div *ngIf="dataTable" class="mat-elevation-z8">
-	<table mat-table [dataSource]="dataSource">
+<div class="mat-elevation-z8">
+	<table *ngIf="dataTable" mat-table [dataSource]="dataSource">
 		<!-- HEADER ROW -->
 		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 		<tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>

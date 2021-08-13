@@ -17,6 +17,7 @@ export abstract class BaseCrudApi<
 	constructor(protected _httpClient: HttpClient) {}
 
 	create(requestData: RequestUpdateCreate): Observable<ResponseUpdateCreate> {
+		console.log(this.APIUrl);
 		return this._httpClient.post<ResponseUpdateCreate>(this.APIUrl, requestData);
 	}
 

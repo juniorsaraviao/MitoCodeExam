@@ -1,6 +1,8 @@
 import { IProduct } from 'src/app/commons/models/interfaces/basic-component-model.interface';
-import { AfterContentInit, Component, Input } from '@angular/core';
+import { AfterContentInit, Component, Input, OnInit } from '@angular/core';
 import { ProductFlowService } from '../service/product-flow.service';
+import { Collection } from 'src/app/commons/services/apis/category/category-api-models.interface';
+import { CategoryApiService } from 'src/app/commons/services/apis/category/category-api.service';
 
 @Component({
 	selector: 'app-product',
@@ -8,11 +10,19 @@ import { ProductFlowService } from '../service/product-flow.service';
 	styleUrls: ['./product.component.scss'],
 	providers: [ProductFlowService]
 })
-export class ProductComponent implements AfterContentInit {
+export class ProductComponent implements OnInit, AfterContentInit {
 	@Input() value!: IProduct;
-	constructor(public productFlowService: ProductFlowService) {
+	categoriesList: Collection[] = [];
+	constructor(public productFlowService: ProductFlowService, private _categoryApiService: CategoryApiService) {
 		productFlowService.loadFormGroup(this.value);
 	}
+
+	ngOnInit(): void {
+		this._categoryApiService.findAll().subscribe((data) => {
+			this.categoriesList = data.collection;
+		});
+	}
+
 	ngAfterContentInit(): void {
 		this.productFlowService.loadFormGroup(this.value);
 	}

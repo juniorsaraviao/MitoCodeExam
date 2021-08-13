@@ -1,4 +1,5 @@
 import { Type } from '@angular/core';
+import { IResponseCategoryFindAll } from '../../services/apis/category/category-api-models.interface';
 
 export interface IDataTable {
 	columns: IColumn[];
@@ -21,6 +22,7 @@ export interface IDataDialog {
 	dataTransfer?: ITransferDataDialog[];
 	title: string;
 	value?: ICategory | IProduct;
+	categories?: IResponseCategoryFindAll;
 }
 
 export interface IConfigDialog extends IDataDialog {

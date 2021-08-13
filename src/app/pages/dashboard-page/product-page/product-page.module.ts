@@ -16,6 +16,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { QuestionSaveDataModule } from 'src/app/commons/components/question-save-data/question-save-data.module';
 
 const routes: Routes = [{ path: '', component: ProductPageComponent }];
 
@@ -23,6 +24,7 @@ const routes: Routes = [{ path: '', component: ProductPageComponent }];
 	declarations: [ProductPageComponent, ProductComponent],
 	imports: [
 		CommonModule,
+		QuestionSaveDataModule,
 		MatInputModule,
 		MatButtonModule,
 		MatFormFieldModule,

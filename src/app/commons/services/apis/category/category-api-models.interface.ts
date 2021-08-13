@@ -14,7 +14,8 @@ export type IResponseCategoryFindAll = IResponseFindAll<Collection>;
 export type IResponseCategoryById = IResponseById<Collection>;
 //#endregion
 
-interface Collection {
-	name: string;
-	description: string;
+export interface Collection {
+	categoryDescription: number;
+	categoryId: string;
+	categoryName: string;
 }

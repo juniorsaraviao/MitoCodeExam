@@ -23,7 +23,6 @@ export class CategoryFlowService {
 		if (value) {
 			this._isUpdate = true;
 			this._value = value;
-			// TODO create a model to map directly
 			this.formGroup = this._formBuilder.group({
 				// eslint-disable-next-line @typescript-eslint/unbound-method
 				name: [value?.categoryName, Validators.required],
