@@ -2,6 +2,11 @@
 	<div class="container__content">
 		<h1>Productos</h1>
 		<app-search [dataSource]="dataSource"></app-search>
-		<app-table [dataTable]="dataTable" (dataSourceEvent)="demo($event)" [function]="clickCreateCategorie"></app-table>
+		<app-table
+			*ngIf="dataTable"
+			[dataTable]="dataTable"
+			(dataSourceEvent)="demo($event)"
+			[function]="clickCreateProduct"
+		></app-table>
 	</div>
 </div>

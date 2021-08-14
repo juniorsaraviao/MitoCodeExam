@@ -24,6 +24,7 @@ export class TableComponent implements OnInit, AfterViewInit, OnChanges {
 	@Input() showButtonEdit = true;
 	@Input() showButtonDelete = true;
 	@Input() showButtonViewDetail = false;
+	@Input() showActions = true;
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	@Input() function!: (item?: any) => void;
 
@@ -43,14 +44,8 @@ export class TableComponent implements OnInit, AfterViewInit, OnChanges {
 	private _existData = false;
 
 	ngOnChanges(changes: SimpleChanges): void {
-		const table = changes['dataTable'].currentValue as IDataTable;
-
-		if (table && table.data.length > 0) {
-			this.columnNames = table.columns;
-			this.dataSource = new MatTableDataSource(table.data);
-			this.displayedColumns = table.columns.filter((x) => !x.hidden).map((item) => item.title);
-			this.displayedColumns.push('actions');
-			this.dataSourceEvent.emit(this.dataSource);
+		if (changes['dataTable']) {
+			this._loadData();
 		}
 	}
 
@@ -70,6 +65,28 @@ export class TableComponent implements OnInit, AfterViewInit, OnChanges {
 		if (this._existData) {
 			this.dataSource.paginator = this.paginator;
 			this.dataSource.sort = this.sort;
+		}
+	}
+
+	private _loadData(): void {
+		this._existData = this.dataTable !== undefined && this.dataTable.data !== undefined;
+
+		if (this._existData) {
+			this.columnNames = this.dataTable.columns;
+
+			if (this.dataSource) {
+				this.dataSource.data = this.dataTable.data;
+			} else {
+				this.dataSource = new MatTableDataSource(this.dataTable.data);
+			}
+
+			if (this.displayedColumns.length === 0) {
+				this.displayedColumns = this.dataTable.columns.filter((x) => !x.hidden).map((item) => item.title);
+				if (this.showActions) {
+					this.displayedColumns.push('actions');
+				}
+			}
+			this.dataSourceEvent.emit(this.dataSource);
 		}
 	}
 

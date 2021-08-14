@@ -41,7 +41,7 @@ export class ProductPageComponent implements OnInit {
 	}
 
 	private _findAllProducts(): void {
-		this._productApiServices.findAll().subscribe((data) => {
+		this._productApiServices.findAll({ page: 1, rows: 10 }).subscribe((data) => {
 			this._loadDataTable(data);
 		});
 	}
@@ -53,7 +53,7 @@ export class ProductPageComponent implements OnInit {
 	}
 
 	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-	clickCreateCategorie = (item?: unknown) => {
+	clickCreateProduct = (item?: unknown) => {
 		if (!item) {
 			const afterClosed = this._customDialogService.open({
 				component: ProductComponent,

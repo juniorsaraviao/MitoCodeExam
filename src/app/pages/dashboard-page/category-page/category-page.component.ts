@@ -29,12 +29,13 @@ export class CategoryPageComponent implements OnInit {
 				{ title: 'Categoría', width: '40%' },
 				{ title: 'Descripción', width: '60%' }
 			],
-			data: [...dataResponse.collection]
+			data: dataResponse.collection
 		};
 	}
 
 	private _findAllCategories(): void {
-		this._categoryApiService.findAll().subscribe((data) => {
+		this._categoryApiService.findAll({ page: 1, rows: 10 }).subscribe((data) => {
+			console.log('data', data);
 			this._loadDataTable(data);
 		});
 	}

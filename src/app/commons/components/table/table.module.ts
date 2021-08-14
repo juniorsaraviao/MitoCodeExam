@@ -8,6 +8,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { TableComponent } from './table.component';
 import { DataTablePipe } from './pipe/data-table.pipe';
+import { MAT_PAGINATOR_PROVIDER } from '../../services/local/custom-paginator.service';
 
 @NgModule({
 	declarations: [TableComponent, DataTablePipe],
@@ -20,6 +21,7 @@ import { DataTablePipe } from './pipe/data-table.pipe';
 		MatToolbarModule,
 		MatButtonModule
 	],
-	exports: [TableComponent, CommonModule]
+	exports: [TableComponent, CommonModule],
+	providers: [MAT_PAGINATOR_PROVIDER]
 })
 export class TableModule {}

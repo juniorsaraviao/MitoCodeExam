@@ -3,6 +3,7 @@ export class Utils {
 		if (!object || Object.entries(object).length === 0) {
 			return url;
 		}
+		url = url + '?';
 
 		Object.entries(object).forEach(([key, value]) => {
 			if (key && value) {
