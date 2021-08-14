@@ -35,7 +35,6 @@ export class CategoryPageComponent implements OnInit {
 
 	private _findAllCategories(): void {
 		this._categoryApiService.findAll({ page: 1, rows: 10 }).subscribe((data) => {
-			console.log('data', data);
 			this._loadDataTable(data);
 		});
 	}

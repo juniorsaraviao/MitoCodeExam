@@ -29,11 +29,11 @@ body {
 	input[type='number'] {
 		-moz-appearance: textfield;
 	}
-	// .background-auth {
-	// 	background-image: url('./assets/img/background_mitocode.png');
-	// 	background-size: cover;
-	// 	background-repeat: no-repeat;
-	// }
+	.background-auth {
+		background-image: url('./assets/img/angular-wallpaper.png');
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
 
 	.blur {
 		background: rgba(255, 255, 255, 0.2);

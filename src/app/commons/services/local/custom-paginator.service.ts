@@ -8,9 +8,7 @@ export class MatPaginatorIntlHuService extends MatPaginatorIntl {
 	previousPageLabel = 'Previo';
 
 	getRangeLabel = (page: number, pageSize: number, length: number): string => {
-		console.log('length', length, 'size', pageSize);
 		if (length === 0 || pageSize === 0) {
-			console.log(`0 / ${length}`);
 			return `0 / ${length}`;
 		}
 

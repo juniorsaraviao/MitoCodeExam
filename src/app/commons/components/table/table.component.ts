@@ -90,23 +90,7 @@ export class TableComponent implements OnInit, AfterViewInit, OnChanges {
 		}
 	}
 
-	clickEdit(element: unknown): void {
-		this.editEvent.emit(element);
-	}
-
-	clickDelete(element: unknown): void {
-		this.deleteEvent.emit(element);
-	}
-
-	clickViewDetail(element: unknown): void {
-		this.viewDetailEvent.emit(element);
-	}
-
 	page(pageEvent: PageEvent): void {
 		this.pageEvent.emit(pageEvent);
-	}
-
-	edit(): void {
-		console.log('edit');
 	}
 }
