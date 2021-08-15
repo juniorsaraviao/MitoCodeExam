@@ -31,13 +31,20 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 <table>
   <tr>
      <td>Category List</td>
+  </tr>
+  <tr>
+    <td><img src="src/gallery/Category.png" width=500 height=300></td>
+  </tr>
+  <tr>
      <td>Add Category</td>
+  </tr>
+  <tr>
+    <td><img src="src/gallery/Category-Add.png" width=500 height=300></td>
+  <tr>
      <td>Edit Category</td>
   </tr>
   <tr>
-    <td><img src="src/gallery/Category.png" width=300 height=200></td>
-    <td><img src="src/gallery/Category-Add.png" width=300 height=200></td>
-    <td><img src="src/gallery/Category-Edit.png" width=300 height=200></td>
+    <td><img src="src/gallery/Category-Edit.png" width=500 height=300></td>
   </tr>
  </table>
 
@@ -46,12 +53,22 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 <table>
   <tr>
      <td>Category List</td>
+  </tr>
+  <tr>
+    <td><img src="src/gallery/Products.png" width=500 height=300></td>
+  </tr>
+
+  <tr>
      <td>Add Category</td>
+  </tr>
+  <tr>
+    <td><img src="src/gallery/Products-Add.png" width=500 height=300></td>
+  </tr>
+
+  <tr>
      <td>Edit Category</td>
   </tr>
   <tr>
-    <td><img src="src/gallery/Products.png" width=300 height=200></td>
-    <td><img src="src/gallery/Products-Add.png" width=300 height=200></td>
-    <td><img src="src/gallery/Product-Edit.png" width=300 height=200></td>
+    <td><img src="src/gallery/Product-Edit.png" width=500 height=300></td>
   </tr>
  </table>
