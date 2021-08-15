@@ -25,3 +25,33 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Category :heavy_check_mark:
+
+<table>
+  <tr>
+     <td>Category List</td>
+     <td>Add Category</td>
+     <td>Edit Category</td>
+  </tr>
+  <tr>
+    <td><img src="src/gallery/Category.png" width=300 height=200></td>
+    <td><img src="src/gallery/Category-Add.png" width=300 height=200></td>
+    <td><img src="src/gallery/Category-Edit.png" width=300 height=200></td>
+  </tr>
+ </table>
+
+ ## Product :heavy_check_mark:
+
+<table>
+  <tr>
+     <td>Category List</td>
+     <td>Add Category</td>
+     <td>Edit Category</td>
+  </tr>
+  <tr>
+    <td><img src="src/gallery/Products.png" width=300 height=200></td>
+    <td><img src="src/gallery/Products-Add.png" width=300 height=200></td>
+    <td><img src="src/gallery/Product-Edit.png" width=300 height=200></td>
+  </tr>
+ </table>
